@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $category->name=$request->name;
         $category->description=$request->description;
         $category->save();
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -60,9 +60,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+       $category=Category::find($id);
+       return view('Category.edit')->withCategory($category);
     }
 
     /**
@@ -72,19 +73,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,$id)
     {
-        //
+       $category=Category::find($id);
+       $category->name=$request->name;
+       $category->description=$request->description;
+       $category->save();
+       return redirect()->route('category.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        $category->delete();
+        return redirect()->back();
     }
 }

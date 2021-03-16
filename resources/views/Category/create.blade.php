@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+<h3 class="title">Category Create</h3>
 <form action="/category/store" method="post">
 @csrf()
   <div class="form-group">
@@ -12,7 +13,7 @@
     <textarea class="form-control" name="description" placeholder="description"></textarea>
   </div>
  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>
 </div>
 @endsection
