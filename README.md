@@ -5,7 +5,7 @@
 <li>composer create-project --prefer-dist laravel/laravel blog "6.*"</li>
 <li>run= php artisan serve</li>
 <li>set DB setting in .env file</li>
-<li>auth setup 
+<li>auth setup <br>
 composer require laravel/ui "^1.0" --dev
 
 php artisan ui vue --auth</li>
