@@ -27,3 +27,4 @@ Route::put('/category/update/{id}','CategoryController@update')->name('category.
 Route::delete('category/delete/{id}','CategoryController@destroy')->name('category.delete');
 
 Route::resource('tag','TagController');
+Route::resource('blog','BlogController');

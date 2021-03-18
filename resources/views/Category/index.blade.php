@@ -10,6 +10,7 @@ $index=1;
   <tr>
   <th>#</th>
   <th>Name</th>
+  <th>Blog</th>
   <th>Description</th>
   <th>Action</th>
   </tr>
@@ -19,6 +20,11 @@ $index=1;
   <tr>
   <td>{{$index++}}</td>
   <td>{{$category->name}}</td>
+  <td>
+  @foreach($category->blogs as $blog)
+  <span class="badge badge-info">{{$blog->name}}</span>
+  @endforeach
+  </td>
   <td style="width:60%;">{{$category->description}}</td>
   <td>
   <div class="row">
