@@ -17,7 +17,8 @@ php artisan ui vue --auth</li>
 <hr>
 <h3>Topics to Cover</h3>
 <ol>
-<li>Select2</li>
+<li>Select2 &#10004;</li>
+<li>Auth Routes &#10004;</li>
 <li>Server side validation</li>
 <li>Session</li>
 <li>Factory/Seeder</li>
@@ -29,7 +30,6 @@ php artisan ui vue --auth</li>
 <li>SummerNote</li>
 <li>Middleware</li>
 <li>Laratrust</li>
-<li>Auth Routes</li>
 <li>Web Services</li>
 </ol>
 <hr>
