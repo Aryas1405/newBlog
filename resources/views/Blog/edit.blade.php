@@ -7,11 +7,14 @@
 @method('put')
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" name="name" value="{{$blog->name}}" required placeholder="name">
+    <input type="text" class="form-control" name="name" value="{{$blog->name}}"  placeholder="name">
+    @error('name')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Category</label>
-    <select name="category" class="js-example-basic-single form-control" required>
+    <select name="category" class="js-example-basic-single form-control" >
     <option value="">--select category--</option>
     @foreach($categories as $category)
     <option
@@ -21,10 +24,13 @@
      value="{{$category->id}}">{{$category->name}}</option>
     @endforeach
     </select>
+    @error('category')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Tags</label>
-    <select name="tags[]" class="js-example-basic-multiple form-control" multiple required>
+    <select name="tags[]" class="js-example-basic-multiple form-control" multiple >
     <option value="">--select tag--</option>
     @foreach($tags as $tag)
     <option 
@@ -36,10 +42,16 @@
      value="{{$tag->id}}">{{$tag->name}}</option>
     @endforeach
     </select>
+    @error('tags')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
     <textarea class="form-control" name="description" placeholder="description">{{$blog->description}}</textarea>
+    @error('description')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
   </div>
  
   <button type="submit" class="btn btn-primary">Update</button>

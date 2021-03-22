@@ -22,11 +22,40 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+@if(session('success'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+{{session('success')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+@if(session('warning'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+{{session('warning')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+@if(session('danger'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+{{session('danger')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Inventics's Blog
+                </a>&emsp;
+                <a href="#" class="navbar-brand">
+                @if(Auth::user())
+                Wellcome back.. {{Auth::user()->name}}
+                @endif  
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -27,15 +27,17 @@ $index=1;
   <span class="badge badge-warning">{{$tag->name}}</span>
   @endforeach
   </td>
-  <td style="width:60%;">{{$blog->description}}</td>
+  <td style="width:40%;">{{$blog->description}}</td>
   <td>
   <div class="row">
+  @if(Auth::user())
   <a class="btn btn-info btn-sm" href="{{route('blog.edit',$blog->id)}}">edit</a>&nbsp;
-  <form action="{{route('blog.destroy',$blog->id)}}" method="post">
-  @csrf()
-  @method('delete')
-  <button class="btn btn-danger btn-sm" type="submit">delete</button>
-  </form>
+    <form action="{{route('blog.destroy',$blog->id)}}" method="post">
+    @csrf()
+    @method('delete')
+    <button class="btn btn-danger btn-sm" type="submit">delete</button>
+    </form>
+  @endif
   </div>
   </td>
   </tr>
