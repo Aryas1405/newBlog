@@ -21,7 +21,7 @@ php artisan ui vue --auth</li>
 <li>Auth Routes &#10004;</li>
 <li>Server side validation &#10004;</li>
 <li>Session &#10004;</li>
-<li>Factory/Seeder</li>
+<li>Factory/Seeder &#10004;</li>
 <li>Pagination</li>
 <li>Search</li>
 <li>Soft Delete</li>
