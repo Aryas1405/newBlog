@@ -12,4 +12,24 @@ php artisan ui vue --auth</li>
 <li>run migration for DB table= php artisan migrate</li>
 <li> create category MVC by php artisan make:model Category -a</li>
 <li>setup routes for urls and drsign .blade page in view</li>
+<li>Complete Blog,Tag,Category with relation</li>
 </ol>
+<hr>
+<h3>Topics to Cover</h3>
+<ol>
+<li>Select2</li>
+<li>Server side validation</li>
+<li>Session</li>
+<li>Factory/Seeder</li>
+<li>Pagination</li>
+<li>Search</li>
+<li>Soft Delete</li>
+<li>Slug</li>
+<li>ImageIntervention</li>
+<li>SummerNote</li>
+<li>Middleware</li>
+<li>Laratrust</li>
+<li>Auth Routes</li>
+<li>Web Services</li>
+</ol>
+<hr>

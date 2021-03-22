@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Tag;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -18,15 +19,17 @@ class BlogController extends Controller
     public function create()
     {
         $categories=Category::all();
-        return view('Blog.create')->withCategories($categories);
+        $tags=Tag::all();
+        return view('Blog.create',compact('tags','categories'));
     }
     public function store(Request $request)
     {
-        $Blog= new Blog;
-        $Blog->name=$request->name;
-        $Blog->description=$request->description;
-        $Blog->category_id=$request->category;
-        $Blog->save();
+        $blog= new Blog;
+        $blog->name=$request->name;
+        $blog->description=$request->description;
+        $blog->category_id=$request->category;
+        $blog->save();
+        $blog->tags()->sync($request->tags);
         return redirect()->route('blog.index');
     }
 
@@ -38,7 +41,9 @@ class BlogController extends Controller
     public function edit($id)
     {
        $blog=Blog::find($id);
-       return view('Blog.edit')->withBlog($blog);
+       $categories=Category::all();
+       $tags=Tag::all();
+       return view('Blog.edit',compact('blog','tags','categories'));
     }
     public function update(Request $request,$id)
     {

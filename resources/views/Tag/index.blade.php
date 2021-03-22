@@ -10,6 +10,7 @@ $index=1;
   <tr>
   <th>#</th>
   <th>Name</th>
+  <th>Blogs</th>
   <th>Action</th>
   </tr>
   </thead>
@@ -18,6 +19,11 @@ $index=1;
   <tr>
   <td>{{$index++}}</td>
   <td>{{$tag->name}}</td>
+  <td>
+  @foreach($tag->blogs as $blog)
+  <span class="badge badge-warning">{{$blog->name}}</span>
+  @endforeach
+  </td>
   <td>
   <div class="row">
   <a class="btn btn-info btn-sm" href="{{route('tag.edit',$tag)}}">edit</a>&nbsp;
