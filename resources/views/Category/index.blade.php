@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
 @php
-$index=1;
+$perPage=$categories->perPage();
+$currentPage=$categories->currentPage()-1;
+$index=$perPage*$currentPage+1;
 @endphp
 <div class="container">
 <h3 class="title">Category List  <a style="text-decoration:none;" href="{{route('category.create')}}">+</a></h3>
