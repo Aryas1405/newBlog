@@ -5,6 +5,10 @@ $index=1;
 @endphp
 <div class="container">
 <h3 class="title">Blog List  <a style="text-decoration:none;" href="{{route('blog.create')}}">+</a></h3>
+<div class="row">
+<div class="col-md-2" style=""></div>
+<div class="col-md-2">{{$blogs->links()}}</div>
+</div>
 <table class="table table-striped">
   <thead>
   <tr>

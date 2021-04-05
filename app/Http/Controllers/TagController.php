@@ -5,16 +5,18 @@ use DB;
 use App\Tag;
 use Illuminate\Http\Request;
 
+
 class TagController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tags=Tag::all();
+        $tags=Tag::paginate(10);
         return view('Tag.index')->withTags($tags);
     }
 

@@ -5,6 +5,11 @@ $index=1;
 @endphp
 <div class="container">
 <h3 class="title">Tag List  <a style="text-decoration:none;" href="{{route('tag.create')}}">+</a></h3>
+<form action="" method="get">
+<input type="text" placeholder="search tag" name="searchT" value="" style=" margin-left:800px;margin-bottom:8px;" >
+<button type="submit" class="fas fa-search">GO</button> 
+</form>
+{{$tags->links()}}
 <table class="table table-striped">
   <thead>
   <tr>
@@ -38,5 +43,6 @@ $index=1;
   @endforeach
   </tbody>
 </table>
+
 </div>
 @endsection

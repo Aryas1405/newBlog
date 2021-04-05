@@ -80,7 +80,16 @@
                                 </li>
                             @endif
                         @else
-                        <a class="nav-link " href="/categories" >Categories</a>
+                        <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/categories">Category list</a>
+                            <a class="dropdown-item" href="{{route('category.create')}}">Category Add</a>
+                            <a class="dropdown-item" href="{{route('category.deleted')}}"> Deleted Category</a>
+                        </div>
+                        </div>
                         <a class="nav-link " href="{{route('tag.index')}}" >Tags</a>
                         <a class="nav-link " href="{{route('blog.index')}}" >Blogs</a>
                             <li class="nav-item dropdown">

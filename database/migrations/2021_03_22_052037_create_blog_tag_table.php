@@ -20,7 +20,8 @@ class CreateBlogTagTable extends Migration
             $table->timestamps();
         });
     }
-
+// php artisan make:migration create_blog_tag_table
+// php artisan migrate
     /**
      * Reverse the migrations.
      *

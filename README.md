@@ -22,9 +22,9 @@ php artisan ui vue --auth</li>
 <li>Server side validation &#10004;</li>
 <li>Session &#10004;</li>
 <li>Factory/Seeder &#10004;</li>
-<li>Pagination</li>
+<li>Pagination &#10004;</li>
 <li>Search</li>
-<li>Soft Delete</li>
+<li>Soft Delete &#10004;</li>
 <li>Slug</li>
 <li>ImageIntervention</li>
 <li>SummerNote</li>
