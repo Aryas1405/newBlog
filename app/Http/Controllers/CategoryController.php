@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories=Category::orderBy('name','ASC')->paginate(10);
-        return view('Category.index')
-        ->withCategories($categories)
+        $name=($request->searchC) ? $request->searchC : '';
+        $description=($request->searchD) ? $request->searchD : '';
+        $categories=Category::search('name',$name)
+        ->search('description',$description)
+        ->orderBy('name','ASC')->paginate(10);
+        return view('Category.index',compact('categories','name','description'))
         ;
     }
     public function deleted()

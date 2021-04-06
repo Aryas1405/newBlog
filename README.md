@@ -23,10 +23,10 @@ php artisan ui vue --auth</li>
 <li>Session &#10004;</li>
 <li>Factory/Seeder &#10004;</li>
 <li>Pagination &#10004;</li>
-<li>Search</li>
+<li>Search &#10004;</li>
 <li>Soft Delete &#10004;</li>
 <li>Slug</li>
-<li>ImageIntervention</li>
+<li>ImageIntervention &#10004;</li>
 <li>SummerNote</li>
 <li>Middleware</li>
 <li>Laratrust</li>

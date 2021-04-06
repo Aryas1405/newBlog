@@ -3,7 +3,7 @@
 
 <div class="container">
 <h3 class="title">Blog Create</h3>
-<form action="{{route('blog.store')}}" method="post">
+<form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
 @csrf()
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
@@ -24,6 +24,10 @@
     @error('category')
     <span class="text-danger">{{$message}}</span>
     @enderror
+  </div>
+  <div class="form-group">
+  <label for="exampleInputEmail1">Image</label>
+  <input type="file" class="form-control" name="image">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Tags</label>

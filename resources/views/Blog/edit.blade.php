@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 <h3 class="title">Blog Edit</h3>
-<form action="{{route('blog.update',$blog->id)}}" method="post">
+<form action="{{route('blog.update',$blog->id)}}" method="post" enctype="multipart/form-data">
 @csrf()
 @method('put')
   <div class="form-group">
@@ -28,6 +28,11 @@
     <span class="text-danger">{{$message}}</span>
     @enderror
   </div>
+  <div class="form-group">
+  <label for="exampleInputEmail1">Image</label><br>
+<img style="height:15%;width:15%;" src="{{asset('image/'.$blog->image)}}" alt="">
+<input type="file" name="image">
+</div>
   <div class="form-group">
     <label for="exampleInputEmail1">Tags</label>
     <select name="tags[]" class="js-example-basic-multiple form-control" multiple >

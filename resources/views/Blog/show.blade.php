@@ -74,6 +74,9 @@ img {
 @endforeach
 </div>
 <br>
+<center>
+<img style="height:60%;width:60%;" src="{{asset('image/'.$blog->image)}}" alt="">
+</center>
 <div style="margin-left:30px;margin-right:30px;">
 <h3 style="font-family:gabriola"> <p class="fas fa-quote-left"></p>
 {{$blog->description}}
