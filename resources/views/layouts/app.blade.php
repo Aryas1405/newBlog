@@ -80,6 +80,9 @@
                                 </li>
                             @endif
                         @else
+                        <a class="nav-link " href="{{route('role.index')}}" >Roles</a>
+                        <a class="nav-link " href="{{route('permission.index')}}" >Permission</a>
+                        <a class="nav-link " href="{{route('user.role.index')}}" >User-Role</a>
                         <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
@@ -91,7 +94,9 @@
                         </div>
                         </div>
                         <a class="nav-link " href="{{route('tag.index')}}" >Tags</a>
+                        @permission('blog-list')
                         <a class="nav-link " href="{{route('blog.index')}}" >Blogs</a>
+                        @endpermission
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
