@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+
 <div class="container">
 <h3 class="title">Category Edit</h3>
 <form action="{{route('category.update',$category->id)}}" method="post">
@@ -18,4 +17,3 @@
 </form>
 </div>
 
-@endsection

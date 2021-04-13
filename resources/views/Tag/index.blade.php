@@ -32,7 +32,7 @@ $index=1;
   <td>
   <div class="row">
   <a class="btn btn-info btn-sm" href="{{route('tag.edit',$tag)}}">edit</a>&nbsp;
-  <form action="{{route('tag.destroy',$tag)}}" method="post">
+  <form action="{{route('tag.destroy',$tag->id)}}" method="post">
   @csrf()
   @method('delete')
   <button class="btn btn-danger btn-sm" type="submit">delete</button>

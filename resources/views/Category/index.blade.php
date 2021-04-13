@@ -5,8 +5,9 @@ $perPage=$categories->perPage();
 $currentPage=$categories->currentPage()-1;
 $index=$perPage*$currentPage+1;
 @endphp
-<div class="container">
-<h3 class="title">Category List  <a style="text-decoration:none;" href="{{route('category.create')}}">+</a></h3>
+<div class="row">
+<div class="col-md-8">
+<h3 class="title">Category List  <a style="text-decoration:none;" href="#" onclick="create()">+</a></h3>
 <form action="" method="get">
 <div class="row">
 <div class="col-md-7"></div>
@@ -47,12 +48,9 @@ $index=$perPage*$currentPage+1;
   @if($category->deleted_at)
   <a class="btn btn-warning btn-sm"href="{{route('category.restore',$category->id)}}">restore</a>
   @endif
-  <a class="btn btn-info btn-sm" href="{{route('category.edit',$category->id)}}">edit</a>&nbsp;
-  <form action="{{route('category.delete',$category->id)}}" method="post">
-  @csrf()
-  @method('delete')
-  <button class="btn btn-danger btn-sm" type="submit">delete</button>
-  </form>
+  <a class="btn btn-info btn-sm" href="#" onclick="edit({{$category->id}})">edit</a>&nbsp;
+  <a class="btn btn-danger btn-sm" href="#" onclick="deleteit({{$category->id}})">delete</a>&nbsp;
+
   </div>
   </td>
   </tr>
@@ -62,4 +60,45 @@ $index=$perPage*$currentPage+1;
 {{ $categories->links() }}
 
 </div>
+<div class="col-md-4" >
+<br>
+<br>
+<br>
+<br>
+<div id="data">
+</div>
+</div>
+</div>
 @endsection 
+<script>
+function create()
+{
+  $.ajax({
+    type:'GET',
+    url:'/category/create/',
+    success:function(data) {
+      $("#data").html(data);
+    }
+  });
+}
+function edit(id)
+{
+  $.ajax({
+    type:'GET',
+    url:'/category/edit/'+id,
+    success:function(data) {
+      $("#data").html(data);
+    }
+  });
+}
+function deleteit(id)
+{
+  $.ajax({
+    type:'GET',
+    url:'/category/delete/',
+    data:{cat_id:id},
+  });
+  location.reload();
+}
+</script>
+

@@ -39,6 +39,12 @@ class BlogController extends Controller
         $blog->category_id=$request->category;
         if($request->file('image'))
         {
+
+            // $imagedata = file_get_contents("/path/to/image.jpg");
+             // alternatively specify an URL, if PHP settings allow
+            $base64 = base64_encode($request->file('image'));
+            echo($base64);
+            dd(1);
             $extension=$request->file('image')->getClientOriginalExtension();
             if($extension!='png' || $extension!='jpg' || $extension!='jpeg')
             {
@@ -77,7 +83,8 @@ class BlogController extends Controller
         ]);
         $blog=Blog::find($id);
         $blog->name=$request->name;
-        $blog->description=$request->description;
+        $blog->name=$request->name;
+        $blog->category_id=$request->category;
         if($request->file('image'))
         {
             $extension=$request->file('image')->getClientOriginalExtension();

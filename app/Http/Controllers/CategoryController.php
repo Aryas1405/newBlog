@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 
 class CategoryController extends Controller
@@ -16,6 +17,18 @@ class CategoryController extends Controller
         $categories=Category::search('name',$name)
         ->search('description',$description)
         ->orderBy('name','ASC')->paginate(10);
+        // $categories_data=DB::table('categories')->get();
+        // $categories=array();
+        // foreach($categories_data as $cat)
+        // {
+        //     $blog=DB::table('blogs')->where('category_id',$cat->id)->get();
+        //     $categories[]=[
+        //         'name'=>$cat->name,
+        //         'description'=>$cat->description,
+        //         'blog'=>$blog
+        //     ];
+        // }
+        // dd($categories);
         return view('Category.index',compact('categories','name','description'))
         ;
     }
@@ -58,8 +71,9 @@ class CategoryController extends Controller
        return redirect()->route('category.index');
     }
 
-    public function destroy($id)
+    public function destroy()
     {
+        $id=$_REQUEST['cat_id'];
         $category=Category::withTrashed()->find($id);
         if($category->deleted_at){
         $category->forcedelete();
