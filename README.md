@@ -45,6 +45,9 @@ This will create Role and Permission Migration & Model in App/Model.<br>
 Now, move these models to your existing model directory , which is App/.<br>
 Also Replace 'App/Model/User','App/Model/Role' & 'App/Model/Permission' line to 'App/User','App/Role' & 'App/Permission'  resp. in all places.
 </li>
+<li>in User model import this 'use Laratrust\Traits\LaratrustUserTrait;' <br>
+    and inside class -> 'use LaratrustUserTrait;'
+    </li>
 <li>command: composer dump-autoload</li>
 <li>command: php artisan migrate</li>
 <h4>For seeder</h4>
