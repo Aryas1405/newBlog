@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Tag;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -38,8 +38,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
+        $str=strtolower($request->name);
+        $slug = preg_replace('/\s+/', '-', $str); 
+        $random = Str::random(4);
+
         $tag=new Tag;
         $tag->name = $request->name;
+        $tag->slug=$slug.$random;
         $tag->save();
         return redirect()->route('tag.index');
     }
@@ -61,21 +66,20 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edittag($slug)
     {
+        $tag=Tag::where('slug',$slug)->first();
         return view('Tag.edit')->withTag($tag);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Tag $tag)
     {
+        $str=strtolower($request->name);
+        $slug = preg_replace('/\s+/', '-', $str); 
+        $random = Str::random(4);
+
         $tag->name = $request->name;
+        $tag->slug=$slug.$random;
         $tag->save();
         return redirect()->route('tag.index');
     }

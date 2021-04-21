@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('category/delete/','CategoryController@destroy')->name('category.delete');
 
     Route::resource('tag','TagController');
+    Route::get('/tag/edit/{slug}','TagController@edittag')->name('tag.slug_edit');
 });
 Route::resource('blog','BlogController');
 

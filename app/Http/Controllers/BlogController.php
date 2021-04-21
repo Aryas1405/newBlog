@@ -25,6 +25,7 @@ class BlogController extends Controller
         $tags=Tag::all();
         return view('Blog.create',compact('tags','categories'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -42,9 +43,9 @@ class BlogController extends Controller
 
             // $imagedata = file_get_contents("/path/to/image.jpg");
              // alternatively specify an URL, if PHP settings allow
-            $base64 = base64_encode($request->file('image'));
-            echo($base64);
-            dd(1);
+            // $base64 = base64_encode($request->file('image'));
+            // echo($base64);
+            // dd(1);
             $extension=$request->file('image')->getClientOriginalExtension();
             if($extension!='png' || $extension!='jpg' || $extension!='jpeg')
             {
@@ -109,6 +110,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $Blog=Blog::find($id);
+        $this->delete_image($Blog->image);
         $Blog->delete();
         session()->flash('danger', 'Blog Deleted successfully!');
         return redirect()->back();
